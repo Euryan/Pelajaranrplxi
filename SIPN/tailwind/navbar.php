@@ -12,102 +12,75 @@
 
 <nav class="bg-white fixed w-full z-20 top-0 start-0 border-b border-default">
     <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
-        <a href="https://flowbite.com" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <a href="table.php" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdGVkppsfwNB0d2JxYA8hfHtTQQd_tcevK1KQzO6m7yQ&s" class="h-7" />
             <span class="self-center text-xl font-semibold whitespace-nowrap text-heading">SIPN</span>
         </a>
-        <button data-collapse-toggle="mega-menu-full" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-lg md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-default" aria-controls="mega-menu-full" aria-expanded="false">
+        <div class="flex items-center order-2 space-x-3 md:order-3 rtl:space-x-reverse">
+            <button type="button" class="flex text-sm bg-neutral-primary rounded-full focus:ring-4 focus:ring-neutral-tertiary" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                <span class="sr-only">Open user menu</span>
+                <!-- default guest avatar, dipakai selama user belum login -->
+                <svg class="w-8 h-8 rounded-full text-gray-400 bg-gray-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-7 9a7 7 0 1 1 14 0H3Z" clip-rule="evenodd"/>
+                </svg>
+            </button>
+            <div class="z-50 hidden bg-neutral-primary-medium border border-default-medium rounded-base shadow-lg w-44" id="user-dropdown">
+                <div class="px-4 py-3 text-sm border-b border-default">
+                    <span class="block text-heading font-medium">Guest</span>
+                    <span class="block text-body truncate">Belum login</span>
+                </div>
+                <ul class="p-2 text-sm text-body font-medium" aria-labelledby="user-menu-button">
+                    <li>
+                        <a href="login.php" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Login</a>
+                    </li>
+                    <li>
+                        <a href="register.php" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <button data-collapse-toggle="navbar-menu" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-lg md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-default" aria-controls="navbar-menu" aria-expanded="false">
             <span class="sr-only">Open main menu</span>
             <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/></svg>
         </button>
-        <div id="mega-menu-full" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
+        <div id="navbar-menu" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
             <ul class="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
                 <li>
-                    <a href="#" class="block py-2 px-3 text-heading hover:text-fg-brand border-b border-light hover:bg-neutral-secondary-soft md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0" aria-current="page">Home</a>
+                    <a href="table.php" class="block py-2 px-3 text-heading hover:text-fg-brand border-b border-light hover:bg-neutral-secondary-soft md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0" aria-current="page">Home</a>
                 </li>
                 <li>
-                    <button id="mega-menu-full-dropdown-button" data-collapse-toggle="mega-menu-full-dropdown" class="flex items-center justify-between w-full py-2 px-3 font-medium text-heading border-b border-light md:w-auto hover:bg-neutral-secondary-soft md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0">
-                        Company 
+                    <button id="dropdownUserButton" data-dropdown-toggle="dropdownUser" type="button" class="flex items-center justify-between w-full py-2 px-3 font-medium text-heading border-b border-light md:w-auto hover:bg-neutral-secondary-soft md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0">
+                        User
                         <svg class="w-4 h-4 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7"/></svg>
                     </button>
+                    <div id="dropdownUser" class="z-30 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-48 border border-gray-200">
+                        <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownUserButton">
+                            <li><a href="tabeluseraja.php" class="block px-4 py-2 hover:bg-neutral-secondary-medium">Tabel Users</a></li>
+                            <li><a href="formtambahsiswa.php" class="block px-4 py-2 hover:bg-neutral-secondary-medium">Tambah Siswa</a></li>
+                            <li><a href="formtambahguru.php" class="block px-4 py-2 hover:bg-neutral-secondary-medium">Tambah Guru</a></li>
+                            <li><a href="Tambahuser.php" class="block px-4 py-2 hover:bg-neutral-secondary-medium">Tambah User (Admin)</a></li>
+                            <li><a href="form3.php" class="block px-4 py-2 hover:bg-neutral-secondary-medium">Tambah User (Admin/Siswa/Guru)</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
-                    <a href="table.php" class="block py-2 px-3 text-heading hover:text-fg-brand border-b border-light hover:bg-neutral-secondary-soft md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0">Tabel Data</a>
-                </li>
-                <li>
-                    <a href="tabeluseraja.php" class="block py-2 px-3 text-heading hover:text-fg-brand border-b border-light hover:bg-neutral-secondary-soft md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0">Tabel Users</a>
-                </li>
-                <li>
-                    <a href="#" class="block py-2 px-3 text-heading hover:text-fg-brand border-b border-light hover:bg-neutral-secondary-soft md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div id="mega-menu-full-dropdown" class="hidden mt-1 bg-neutral-primary-soft border-default shadow-xs border-y">
-        <div class="grid max-w-screen-xl px-4 py-5 mx-auto text-heading sm:grid-cols-2 md:grid-cols-3 md:px-6">
-            <ul aria-labelledby="mega-menu-full-dropdown-button">
-                <li>
-                    <a href="#" class="block p-3 rounded-lg hover:bg-neutral-secondary-medium">
-                        <div class="font-semibold">Online Stores</div>
-                        <span class="text-sm text-body">Connect with third-party tools that you're already using.</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="block p-3 rounded-lg hover:bg-neutral-secondary-medium">
-                        <div class="font-semibold">Segmentation</div>
-                        <span class="text-sm text-body">Connect with third-party tools that you're already using.</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="block p-3 rounded-lg hover:bg-neutral-secondary-medium">
-                        <div class="font-semibold">Marketing CRM</div>
-                        <span class="text-sm text-body">Connect with third-party tools that you're already using.</span>
-                    </a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href="#" class="block p-3 rounded-lg hover:bg-neutral-secondary-medium">
-                        <div class="font-semibold">Online Stores</div>
-                        <span class="text-sm text-body">Connect with third-party tools that you're already using.</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="block p-3 rounded-lg hover:bg-neutral-secondary-medium">
-                        <div class="font-semibold">Segmentation</div>
-                        <span class="text-sm text-body">Connect with third-party tools that you're already using.</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="block p-3 rounded-lg hover:bg-neutral-secondary-medium">
-                        <div class="font-semibold">Marketing CRM</div>
-                        <span class="text-sm text-body">Connect with third-party tools that you're already using.</span>
-                    </a>
-                </li>
-            </ul>
-            <ul class="hidden md:block">
-                <li>
-                    <a href="#" class="block p-3 rounded-lg hover:bg-neutral-secondary-medium">
-                        <div class="font-semibold">Audience Management</div>
-                        <span class="text-sm text-body">Connect with third-party tools that you're already using.</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="block p-3 rounded-lg hover:bg-neutral-secondary-medium">
-                        <div class="font-semibold">Creative Tools</div>
-                        <span class="text-sm text-body">Connect with third-party tools that you're already using.</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="block p-3 rounded-lg hover:bg-neutral-secondary-medium">
-                        <div class="font-semibold">Marketing Automation</div>
-                        <span class="text-sm text-body">Connect with third-party tools that you're already using.</span>
-                    </a>
+                    <button id="dropdownMapelButton" data-dropdown-toggle="dropdownMapel" type="button" class="flex items-center justify-between w-full py-2 px-3 font-medium text-heading border-b border-light md:w-auto hover:bg-neutral-secondary-soft md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0">
+                        Mapel
+                        <svg class="w-4 h-4 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7"/></svg>
+                    </button>
+                    <div id="dropdownMapel" class="z-30 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-48 border border-gray-200">
+                        <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownMapelButton">
+                            <li><a href="daftar_mapel.php" class="block px-4 py-2 hover:bg-neutral-secondary-medium">Daftar Mapel</a></li>
+                            <li><a href="tambah_mapel.php" class="block px-4 py-2 hover:bg-neutral-secondary-medium">Tambah Mapel</a></li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+
 </body>
 </html>
+
 
